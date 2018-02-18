@@ -16,5 +16,8 @@
   },
   "main": "app.js",
   "author": "gordon <gordon.song@thoughtworks.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  }
 }
