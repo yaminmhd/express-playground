@@ -11,6 +11,15 @@ app.get("/", function(req, res, next) {
   console.log("You should not see this line in the console.");
 });
 
+app.use("/", function(err, req, res, next) {
+  if (err.message == "Unexpected network error") {
+    console.log("I don't know how to handle network error. Pass it on.");
+    next(err);
+  }
+  console.log("Unknown error. Pass it on.");
+  next(err);
+});
+
 app.use(function(err, req, res, next) {
   res.status(500);
   res.send({ error: "unknown error" });
